@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 
 String assetPath(String imageName, {bool isSvg = false}) {
-  return 'assets/images/${isSvg == true ? "svg_image/" : ""}$imageName.${isSvg == true ? "svg/" : "png"}';
+  return 'assets/images/${isSvg == true ? "svg_image/" : ""}$imageName.${isSvg == true ? "svg" : "png"}';
 }
 
 Widget pngImage(String imageName, {double? height, double? width}) {
@@ -16,6 +16,7 @@ Widget pngImage(String imageName, {double? height, double? width}) {
 Widget svgImage(String imageName, {double? height, double? width}) {
   return SvgPicture.asset(
     assetPath(imageName, isSvg: true),
+    semanticsLabel: 'Acme Logo',
     height: height,
     width: width,
   );

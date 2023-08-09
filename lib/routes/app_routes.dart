@@ -1,11 +1,21 @@
 import 'package:flutter/material.dart';
+import 'package:smart_pay/screens/account_creation/signup_screen.dart';
+import 'package:smart_pay/screens/onboarding/signin_request.dart';
 import 'package:smart_pay/screens/onboarding/splash_screen.dart';
+import 'package:smart_pay/screens/signin_options/login_screen.dart';
 
 class AppRoutes {
   static Route<dynamic> generateRoute(RouteSettings settings) {
     switch (settings.name) {
       case SplashScreen.splashScreen:
         return MaterialPageRoute(builder: (context) => SplashScreen());
+      case RequestSignIn.requestSignIn:
+        return MaterialPageRoute(builder: (context) => RequestSignIn());
+        case SignupScreen.signupScreen:
+        return MaterialPageRoute(builder: (context) => SignupScreen());
+        case LoginScreen.loginScreen:
+        return MaterialPageRoute(builder: (context) => LoginScreen());
+        
       default:
         return MaterialPageRoute(builder: (context) => Container());
       // "" => MaterialPageRoute(builder: (context)=>Container()),

@@ -1,11 +1,13 @@
 import 'package:flutter/material.dart';
-import 'package:smart_pay/screens/signin_options/request_login.dart';
+import 'package:smart_pay/screens/account_creation/signup_screen.dart';
+import 'package:smart_pay/screens/signin_options/login_screen.dart';
 import 'package:smart_pay/utils/colors.dart';
 import 'package:smart_pay/utils/images.dart';
 import 'package:smart_pay/widget/spacing.dart';
 import 'package:smart_pay/widget/texts.dart';
 
 class RequestSignIn extends StatefulWidget {
+  static const String requestSignIn = "sequestSignIn";
   const RequestSignIn({super.key});
 
   @override
@@ -47,10 +49,7 @@ class _RequestSignInState extends State<RequestSignIn> {
                       pngImage(Images.whiteLogo),
                       InkWell(
                         onTap: () {
-                          Navigator.push(context,
-                              MaterialPageRoute(builder: (context) {
-                            return const Login();
-                          }));
+                          Navigator.pushNamed(context, LoginScreen.loginScreen);
                         },
                         child: Container(
                           decoration: BoxDecoration(
@@ -59,8 +58,8 @@ class _RequestSignInState extends State<RequestSignIn> {
                           width: 240,
                           height: 70,
                           child: Center(
-                            child: TextOf(
-                                'RequestSignIn', 25, purple, FontWeight.w500),
+                            child:
+                                TextOf('SignIn', 25, purple, FontWeight.w500),
                           ),
                         ),
                       ),
@@ -72,7 +71,13 @@ class _RequestSignInState extends State<RequestSignIn> {
                           Row(
                             mainAxisAlignment: MainAxisAlignment.start,
                             children: [
-                              TextOf('Signup', 20, white, FontWeight.w600)
+                              TextButton(
+                                  onPressed: () {
+                                    Navigator.pushNamed(
+                                        context, SignupScreen.signupScreen);
+                                  },
+                                  child: TextOf(
+                                      'Signup', 20, white, FontWeight.w600))
                             ],
                           )
                         ],

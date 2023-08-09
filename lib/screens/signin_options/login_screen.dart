@@ -1,18 +1,18 @@
 import 'package:flutter/material.dart';
-import 'package:smart_pay/screens/hello.dart';
+import 'package:smart_pay/screens/account_creation/signup_screen.dart';
 import 'package:smart_pay/utils/colors.dart';
 import 'package:smart_pay/utils/images.dart';
 import 'package:smart_pay/widget/spacing.dart';
 import 'package:smart_pay/widget/texts.dart';
 
-class Login extends StatefulWidget {
-  const Login({super.key});
-
+class LoginScreen extends StatefulWidget {
+  const LoginScreen({super.key});
+  static const String loginScreen  ="loginScreen";
   @override
-  State<Login> createState() => _LoginState();
+  State<LoginScreen> createState() => _LoginScreenState();
 }
 
-class _LoginState extends State<Login> {
+class _LoginScreenState extends State<LoginScreen> {
   bool isVisible = true;
   @override
   Widget build(BuildContext context) {
@@ -24,13 +24,25 @@ class _LoginState extends State<Login> {
           child: Column(
             crossAxisAlignment: CrossAxisAlignment.center,
             children: [
-              YMargin(MediaQuery.of(context).size.height * 0.125),
+              YMargin(MediaQuery.of(context).size.height * 0.07),
               Row(
-                mainAxisAlignment: MainAxisAlignment.center,
-                children: [pngImage(Images.logo, height: 40)],
+                mainAxisAlignment: MainAxisAlignment.start,
+                children: [pngImage(Images.logo, height: 30)],
               ),
-              const YMargin(20),
-              TextOf('Welcome to the smart family', 10, black, FontWeight.w700),
+              const YMargin(50),
+              Row(
+                mainAxisAlignment: MainAxisAlignment.start,
+                children: [
+                  TextOf('Welcome back', 24, purple, FontWeight.w600, align: TextAlign.left,),
+                ],
+              ),
+              const YMargin(10),
+              Row(
+                mainAxisAlignment: MainAxisAlignment.start,
+                children: [
+                  TextOf('Enter your username and password', 12, black, FontWeight.w400, align: TextAlign.left,),
+                ],
+              ),
               const YMargin(100),
               TextFormField(
                 keyboardType: TextInputType.emailAddress,
@@ -96,7 +108,7 @@ class _LoginState extends State<Login> {
               InkWell(
                 onTap: () {
                   Navigator.push(context, MaterialPageRoute(builder: (context) {
-                    return const Hello();
+                    return const SignupScreen();
                   }));
                 },
                 child: Container(

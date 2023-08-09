@@ -4,14 +4,14 @@ import 'package:smart_pay/utils/images.dart';
 import 'package:smart_pay/widget/spacing.dart';
 import 'package:smart_pay/widget/texts.dart';
 
-class Hello extends StatefulWidget {
-  const Hello({super.key});
-
+class SignupScreen extends StatefulWidget {
+  const SignupScreen({super.key});
+  static const String signupScreen = "signup";
   @override
-  State<Hello> createState() => _HelloState();
+  State<SignupScreen> createState() => _SignupScreenState();
 }
 
-class _HelloState extends State<Hello> {
+class _SignupScreenState extends State<SignupScreen> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
