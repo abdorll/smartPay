@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:smart_pay/screens/account_creation/signup_screen.dart';
+import 'package:smart_pay/screens/signin_options/signin_otp_screen.dart';
 import 'package:smart_pay/utils/colors.dart';
 import 'package:smart_pay/utils/images.dart';
 import 'package:smart_pay/widget/spacing.dart';
@@ -107,10 +108,8 @@ class _LoginScreenState extends State<LoginScreen> {
                   const YMargin(7),
                   InkWell(
                     onTap: () {
-                      Navigator.push(context,
-                          MaterialPageRoute(builder: (context) {
-                        return const SignupScreen();
-                      }));
+                      Navigator.pushNamed(
+                          context, SignInOtpScreen.signInOtpScreen);
                     },
                     child: Container(
                       width: double.infinity,
@@ -141,8 +140,14 @@ class _LoginScreenState extends State<LoginScreen> {
                   child: Row(
                     mainAxisAlignment: MainAxisAlignment.center,
                     children: [
-                      TextOf(
-                          'New to Smartpay? Sign Up', 15, black, FontWeight.w500),
+                      InkWell(
+                        onTap: () {
+                          Navigator.pushNamed(
+                              context, SignupScreen.signupScreen);
+                        },
+                        child: TextOf('New to Smartpay? Sign Up', 15, black,
+                            FontWeight.w500),
+                      ),
                     ],
                   ),
                 ),

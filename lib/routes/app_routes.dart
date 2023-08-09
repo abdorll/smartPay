@@ -1,7 +1,9 @@
 import 'package:flutter/material.dart';
+import 'package:smart_pay/rough.dart';
 import 'package:smart_pay/screens/account_creation/signup_screen.dart';
 import 'package:smart_pay/screens/onboarding/signin_request.dart';
 import 'package:smart_pay/screens/onboarding/splash_screen.dart';
+import 'package:smart_pay/screens/signin_options/signin_otp_screen.dart';
 import 'package:smart_pay/screens/signin_options/signin_screen.dart';
 
 class AppRoutes {
@@ -11,11 +13,13 @@ class AppRoutes {
         return MaterialPageRoute(builder: (context) => SplashScreen());
       case RequestSignIn.requestSignIn:
         return MaterialPageRoute(builder: (context) => RequestSignIn());
-        case SignupScreen.signupScreen:
+      case SignupScreen.signupScreen:
         return MaterialPageRoute(builder: (context) => SignupScreen());
-        case LoginScreen.loginScreen:
+      case LoginScreen.loginScreen:
         return MaterialPageRoute(builder: (context) => LoginScreen());
-        
+      case SignInOtpScreen.signInOtpScreen:
+        return MaterialPageRoute(builder: (context) => SignInOtpScreen());
+
       default:
         return MaterialPageRoute(builder: (context) => Container());
       // "" => MaterialPageRoute(builder: (context)=>Container()),
