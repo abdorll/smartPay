@@ -28,7 +28,7 @@ class MyApp extends StatelessWidget {
           colorScheme: ColorScheme.fromSeed(seedColor: Colors.deepPurple),
         ),
         onGenerateRoute: AppRoutes.generateRoute,
-        initialRoute:SignupScreen.signupScreen
+        initialRoute: SignupScreen.signupScreen
         //SignInOtpScreen.signInOtpScreen
         // RequestSignIn.requestSignIn
         //SplashScreen.splashScreen,
