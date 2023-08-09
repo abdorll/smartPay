@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:smart_pay/screens/account_creation/signup_screen.dart';
 import 'package:smart_pay/screens/onboarding/signin_request.dart';
 import 'package:smart_pay/screens/onboarding/splash_screen.dart';
-import 'package:smart_pay/screens/signin_options/login_screen.dart';
+import 'package:smart_pay/screens/signin_options/signin_screen.dart';
 
 class AppRoutes {
   static Route<dynamic> generateRoute(RouteSettings settings) {

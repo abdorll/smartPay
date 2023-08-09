@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:smart_pay/screens/account_creation/signup_screen.dart';
-import 'package:smart_pay/screens/signin_options/login_screen.dart';
+import 'package:smart_pay/screens/signin_options/signin_screen.dart';
 import 'package:smart_pay/utils/colors.dart';
 import 'package:smart_pay/utils/images.dart';
 import 'package:smart_pay/widget/spacing.dart';

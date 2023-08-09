@@ -37,4 +37,7 @@ class Images {
   static String purpleBackground = "splash_screen_background";
   static String topLeftRectanglr = "top_left_rectangle";
   static String bottomCenter = "bottom_center";
+  static String atSymbol = "at_symbol";
+  static String lock = "lock";
+  
 }
