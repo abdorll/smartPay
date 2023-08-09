@@ -4,6 +4,7 @@ import 'package:smart_pay/screens/onboarding/signin_request.dart';
 import 'package:smart_pay/screens/onboarding/splash_screen.dart';
 import 'package:flutter/services.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
+import 'package:smart_pay/screens/signin_options/signin_otp_screen.dart';
 import 'package:smart_pay/utils/colors.dart';
 
 void main() {
@@ -26,7 +27,8 @@ class MyApp extends StatelessWidget {
           colorScheme: ColorScheme.fromSeed(seedColor: Colors.deepPurple),
         ),
         onGenerateRoute: AppRoutes.generateRoute,
-        initialRoute: RequestSignIn.requestSignIn
+        initialRoute:SignInOtpScreen.signInOtpScreen
+        // RequestSignIn.requestSignIn
         //SplashScreen.splashScreen,
         );
   }

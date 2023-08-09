@@ -29,6 +29,7 @@ class _OtpFieldState extends State<OtpField> {
       child: Center(
         child: Pinput(
           controller: pinController,
+          mainAxisAlignment: MainAxisAlignment.spaceBetween,
           length: widget.inputFieldLength,
           focusNode: focusNode,
           androidSmsAutofillMethod: AndroidSmsAutofillMethod.smsUserConsentApi,
@@ -89,7 +90,7 @@ final formKey = GlobalKey<FormState>();
 
 Color focusedBorderColor = purple;
 const fillColor = Color.fromRGBO(243, 246, 249, 0);
- Color borderColor = purple.withOpacity(0.7);
+ Color borderColor = grey;
 
 final defaultPinTheme = PinTheme(
   width: 56, 

@@ -3,6 +3,7 @@ import 'package:smart_pay/screens/account_creation/signup_screen.dart';
 import 'package:smart_pay/screens/signin_options/signin_otp_screen.dart';
 import 'package:smart_pay/utils/colors.dart';
 import 'package:smart_pay/utils/images.dart';
+import 'package:smart_pay/widget/major_button.dart';
 import 'package:smart_pay/widget/spacing.dart';
 import 'package:smart_pay/widget/text_field.dart';
 import 'package:smart_pay/widget/texts.dart';
@@ -106,22 +107,12 @@ class _LoginScreenState extends State<LoginScreen> {
                     ],
                   ),
                   const YMargin(7),
-                  InkWell(
-                    onTap: () {
-                      Navigator.pushNamed(
-                          context, SignInOtpScreen.signInOtpScreen);
-                    },
-                    child: Container(
-                      width: double.infinity,
-                      padding: const EdgeInsets.symmetric(vertical: 11),
-                      decoration: BoxDecoration(
-                          color: purple,
-                          borderRadius: BorderRadius.circular(15)),
-                      child: Center(
-                        child: TextOf('Login', 20, white, FontWeight.w600),
-                      ),
-                    ),
-                  ),
+                  MajorButton(
+                      buttonText: "Login",
+                      buttonAction: () {
+                        Navigator.pushNamed(
+                            context, SignInOtpScreen.signInOtpScreen);
+                      }),
                   const YMargin(10),
                   TextOf('Login with PIN', 15, purple, FontWeight.w400),
                   const YMargin(50),
