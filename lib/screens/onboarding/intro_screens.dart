@@ -72,8 +72,11 @@ class _IntroScreensState extends State<IntroScreens> {
         controller: _pageController,
         allowImplicitScrolling: true,
         // reverse: true,
+        // bool pageSnapping = true,
+        // bool allowImplicitScrolling = false,
+        // bool padEnds = true,
         padEnds: false,
-        pageSnapping : true,
+        pageSnapping: false,
         physics: BouncingScrollPhysics(),
         children: allScreens,
         onPageChanged: (int currentIndex) {
@@ -194,7 +197,8 @@ class _IntroPageItemsState extends State<IntroPageItems> {
                                       onTap: () {
                                         widget.pageIndex != 2
                                             ? widget.controller.animateToPage(2,
-                                                duration: Duration(milliseconds: 200),
+                                                duration:
+                                                    Duration(milliseconds: 200),
                                                 curve: Curves.easeIn)
                                             : Navigator.push(context,
                                                 MaterialPageRoute(

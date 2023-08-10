@@ -17,8 +17,8 @@ Widget svgImage(String imageName, {double? height, double? width}) {
   return SvgPicture.asset(
     assetPath(imageName, isSvg: true),
     semanticsLabel: imageName,
-    height: height!,
-    width: width!,
+    height: height,
+    width: width,
     fit: BoxFit.cover,
   );
 }
@@ -44,4 +44,7 @@ class Images {
   static String starBadge = "star_badge";
   static String faceScanner = "face_scanner";
   static String greyWeb = "grey_web";
+  static String girlImage = "girl_image";
+  static String periodic_savings_2 = "periodic_savings_2";
+  
 }

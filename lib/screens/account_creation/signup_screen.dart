@@ -1,7 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:smart_pay/screens/account_creation/verify_email_creen.dart';
-import 'package:smart_pay/utils/colors.dart';
-import 'package:smart_pay/utils/images.dart';
+import 'package:smart_pay/utils/colors.dart'; 
 import 'package:smart_pay/widget/appbar_paged.dart';
 import 'package:smart_pay/widget/major_button.dart';
 import 'package:smart_pay/widget/spacing.dart';

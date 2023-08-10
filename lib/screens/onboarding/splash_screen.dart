@@ -46,7 +46,7 @@ class _SplashScreenState extends State<SplashScreen> {
 }
 
 class SplashScreenTwo extends StatefulWidget {
-  static const splashScreenTwo = "splashScteen";
+  static const splashScreenTwo = "splashScteenTwo";
   const SplashScreenTwo({super.key});
 
   @override
