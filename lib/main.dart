@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:smart_pay/routes/app_routes.dart';
+import 'package:smart_pay/screens/account_creation/setup_your_account_screen.dart';
 import 'package:smart_pay/screens/account_creation/signup_screen.dart';
 import 'package:smart_pay/screens/account_creation/verify_email_creen.dart';
 import 'package:smart_pay/screens/onboarding/signin_request.dart';
@@ -29,7 +30,8 @@ class MyApp extends StatelessWidget {
           colorScheme: ColorScheme.fromSeed(seedColor: Colors.deepPurple),
         ),
         onGenerateRoute: AppRoutes.generateRoute,
-        initialRoute: VerifyEmailScreen.verifyEmailScreen
+        initialRoute: SetupYourAccount.setupYourAccount
+        //VerifyEmailScreen.verifyEmailScreen
         //SignupScreen.signupScreen
         //SignInOtpScreen.signInOtpScreen
         // RequestSignIn.requestSignIn

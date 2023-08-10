@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:smart_pay/screens/account_creation/setup_your_account_screen.dart';
 import 'package:smart_pay/screens/account_creation/signup_screen.dart';
 import 'package:smart_pay/screens/account_creation/verify_email_creen.dart';
 import 'package:smart_pay/screens/onboarding/signin_request.dart';
@@ -22,6 +23,8 @@ class AppRoutes {
         return MaterialPageRoute(builder: (context) => SignInOtpScreen());
       case VerifyEmailScreen.verifyEmailScreen:
         return MaterialPageRoute(builder: (context) => VerifyEmailScreen());
+      case SetupYourAccount.setupYourAccount:
+        return MaterialPageRoute(builder: (context) => SetupYourAccount());
 
       default:
         return MaterialPageRoute(builder: (context) => PageNotFound());

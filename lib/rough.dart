@@ -1,33 +1,4 @@
-  // showDialog(
-  //                       barrierColor: purple.withOpacity(0.3),
-  //                       context: context,
-  //                       builder: (context) {
-  //                         return Dialog(
-  //                           insetPadding: EdgeInsets.symmetric(horizontal: 20),
-  //                           child: Container(
-  //                             height: MediaQuery.of(context).size.width * 0.6,
-  //                             padding: EdgeInsets.symmetric(
-  //                                 vertical: 25, horizontal: 5),
-  //                             width: double.infinity,
-  //                             child: Column(
-  //                               mainAxisSize: MainAxisSize.min,
-  //                               children: [
-  //                                 pngImage(Images.mail, height: 55),
-  //                                 YMargin(30),
-  //                                 TextOf('Check your mail!', 30, purple,
-  //                                     FontWeight.w800),
-  //                                 YMargin(15),
-  //                                 TextOf(
-  //                                     'We have sent a 6 - digit code to your mail for verification.\nPlease copy the code to verify you email address',
-  //                                     12,
-  //                                     black,
-  //                                     FontWeight.w400)
-  //                               ],
-  //                             ),
-  //                           ),
-  //                         );
-  //                       });
-           
+  
 
 
 // import 'package:flutter/material.dart';

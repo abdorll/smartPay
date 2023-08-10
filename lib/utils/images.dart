@@ -39,5 +39,6 @@ class Images {
   static String bottomCenter = "bottom_center";
   static String atSymbol = "at_symbol";
   static String lock = "lock";
-  
+  static String infoIcon = "info_icon";
+  static String starBadge = "star_badge";
 }
