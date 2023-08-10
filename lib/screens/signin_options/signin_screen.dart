@@ -3,6 +3,7 @@ import 'package:smart_pay/screens/account_creation/signup_screen.dart';
 import 'package:smart_pay/screens/signin_options/signin_otp_screen.dart';
 import 'package:smart_pay/utils/colors.dart';
 import 'package:smart_pay/utils/images.dart';
+import 'package:smart_pay/widget/appbar_paged.dart';
 import 'package:smart_pay/widget/major_button.dart';
 import 'package:smart_pay/widget/spacing.dart';
 import 'package:smart_pay/widget/text_field.dart';
@@ -30,37 +31,9 @@ class _LoginScreenState extends State<LoginScreen> {
               child: Column(
                 crossAxisAlignment: CrossAxisAlignment.center,
                 children: [
-                  YMargin(MediaQuery.of(context).size.height * 0.07),
-                  Row(
-                    mainAxisAlignment: MainAxisAlignment.start,
-                    children: [pngImage(Images.logo, height: 30)],
-                  ),
-                  const YMargin(50),
-                  Row(
-                    mainAxisAlignment: MainAxisAlignment.start,
-                    children: [
-                      TextOf(
-                        'Welcome back,',
-                        24,
-                        purple,
-                        FontWeight.w600,
-                        align: TextAlign.left,
-                      ),
-                    ],
-                  ),
-                  const YMargin(10),
-                  Row(
-                    mainAxisAlignment: MainAxisAlignment.start,
-                    children: [
-                      TextOf(
-                        'Enter your username and password',
-                        12,
-                        black,
-                        FontWeight.w400,
-                        align: TextAlign.left,
-                      ),
-                    ],
-                  ),
+                  PagedAppbar(
+                      title: 'Welcome back,',
+                      subtitle: 'Enter your username and password'),
                   const YMargin(20),
                   Container(
                     padding: EdgeInsets.only(

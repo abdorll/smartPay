@@ -1,15 +1,14 @@
 import 'package:flutter/material.dart';
 import 'package:pinput/pinput.dart';
 import 'package:smart_pay/utils/colors.dart';
-import 'package:smart_pay/utils/colors.dart';
-
-
 
 // ignore: must_be_immutable
 class OtpField extends StatefulWidget {
   int inputFieldLength;
-  OtpField({this.inputFieldLength = 4, super.key});
 
+  OtpField({this.inputFieldLength = 4, this.size = 56, this.color, super.key});
+  Color? color;
+  double size;
   @override
   State<OtpField> createState() => _OtpFieldState();
 }
@@ -34,15 +33,9 @@ class _OtpFieldState extends State<OtpField> {
           focusNode: focusNode,
           androidSmsAutofillMethod: AndroidSmsAutofillMethod.smsUserConsentApi,
           listenForMultipleSmsOnAndroid: true,
-          defaultPinTheme: defaultPinTheme,
+          defaultPinTheme:
+              defaultPinTheme(size: widget.size, color: widget.color),
           separatorBuilder: (index) => const SizedBox(width: 8),
-          // validator: (value) {
-          //   return value == '2222' ? null : 'Pin is incorrect';
-          // },
-          // onClipboardFound: (value) {
-          //   debugPrint('onClipboardFound: $value');
-          //   pinController.setText(value);
-          // },
           hapticFeedbackType: HapticFeedbackType.lightImpact,
           onCompleted: (pin) {
             debugPrint('onCompleted: $pin');
@@ -61,21 +54,28 @@ class _OtpFieldState extends State<OtpField> {
               ),
             ],
           ),
-          focusedPinTheme: defaultPinTheme.copyWith(
-            decoration: defaultPinTheme.decoration!.copyWith(
-              borderRadius: BorderRadius.circular(9),
-              border: Border.all(color: focusedBorderColor),
-            ),
+          focusedPinTheme:
+              defaultPinTheme(size: widget.size, color: widget.color).copyWith(
+            decoration: defaultPinTheme(size: widget.size, color: widget.color)
+                .decoration!
+                .copyWith(
+                  borderRadius: BorderRadius.circular(9),
+                  border: Border.all(color: focusedBorderColor),
+                ),
           ),
-        // disabledPinTheme: ,
-          submittedPinTheme: defaultPinTheme.copyWith(
-            decoration: defaultPinTheme.decoration!.copyWith(
-              color: fillColor,
-              borderRadius: BorderRadius.circular(10),
-              border: Border.all(color: focusedBorderColor),
-            ),
+          // disabledPinTheme: ,
+          submittedPinTheme:
+              defaultPinTheme(size: widget.size, color: widget.color).copyWith(
+            decoration: defaultPinTheme(size: widget.size, color: widget.color)
+                .decoration!
+                .copyWith(
+                  color: fillColor,
+                  borderRadius: BorderRadius.circular(10),
+                  border: Border.all(color: focusedBorderColor),
+                ),
           ),
-          errorPinTheme: defaultPinTheme.copyBorderWith(
+          errorPinTheme: defaultPinTheme(size: widget.size, color: widget.color)
+              .copyBorderWith(
             border: Border.all(color: Colors.redAccent),
           ),
         ),
@@ -90,17 +90,19 @@ final formKey = GlobalKey<FormState>();
 
 Color focusedBorderColor = purple;
 const fillColor = Color.fromRGBO(243, 246, 249, 0);
- Color borderColor = grey;
 
-final defaultPinTheme = PinTheme(
-  width: 56, 
-  height: 56,
-  textStyle: const TextStyle(
-    fontSize: 22,
-    color: Color.fromRGBO(30, 60, 87, 1),
-  ),
-  decoration: BoxDecoration(
-    borderRadius: BorderRadius.circular(9),
-    border: Border.all(color: borderColor),
-  ),
-);
+PinTheme defaultPinTheme({required double size, Color? color}) {
+  return PinTheme(
+    width: size,
+    height: size,
+    textStyle: const TextStyle(
+      fontSize: 22,
+      color: Color.fromRGBO(30, 60, 87, 1),
+    ),
+    decoration: BoxDecoration(
+      borderRadius: BorderRadius.circular(9),
+      color: color ?? purple.withOpacity(0.7),
+      border: Border.all(color: color ?? purple.withOpacity(0.7)),
+    ),
+  );
+}

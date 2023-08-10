@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:smart_pay/utils/colors.dart';
 import 'package:smart_pay/utils/images.dart';
+import 'package:smart_pay/widget/appbar_paged.dart';
 import 'package:smart_pay/widget/major_button.dart';
 import 'package:smart_pay/widget/otp_field.dart';
 import 'package:smart_pay/widget/spacing.dart';
@@ -22,37 +23,9 @@ class _SignInOtpScreenState extends State<SignInOtpScreen> {
         padding: const EdgeInsets.symmetric(horizontal: 20),
         child: Column(
           children: [
-            YMargin(MediaQuery.of(context).size.height * 0.07),
-            Row(
-              mainAxisAlignment: MainAxisAlignment.start,
-              children: [pngImage(Images.logo, height: 30)],
-            ),
-            const YMargin(50),
-            Row(
-              mainAxisAlignment: MainAxisAlignment.start,
-              children: [
-                TextOf(
-                  'Welcome Back, Robert',
-                  24,
-                  purple,
-                  FontWeight.w600,
-                  align: TextAlign.left,
-                ),
-              ],
-            ),
-            const YMargin(10),
-            Row(
-              mainAxisAlignment: MainAxisAlignment.start,
-              children: [
-                TextOf(
-                  'Enter your 4-digit Pin',
-                  12,
-                  black,
-                  FontWeight.w400,
-                  align: TextAlign.left,
-                ),
-              ],
-            ),
+            PagedAppbar(
+                title: 'Welcome Back, Robert',
+                subtitle: 'Enter your 4-digit Pin'),
             const YMargin(20),
             OtpField(),
             YMargin(20),

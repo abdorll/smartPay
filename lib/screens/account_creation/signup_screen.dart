@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:smart_pay/utils/colors.dart';
 import 'package:smart_pay/utils/images.dart';
+import 'package:smart_pay/widget/appbar_paged.dart';
 import 'package:smart_pay/widget/major_button.dart';
 import 'package:smart_pay/widget/spacing.dart';
 import 'package:smart_pay/widget/texts.dart';
@@ -22,48 +23,10 @@ class _SignupScreenState extends State<SignupScreen> {
         child: SingleChildScrollView(
           child: Column(
             children: [
-              YMargin(50),
-              Row(
-                children: [
-                  InkWell(
-                      onTap: () {
-                        Navigator.pop(context);
-                      },
-                      child: pngImage(Images.back, height: 20))
-                ],
-              ),
-              const YMargin(40),
-              Container(
-                child: Column(
-                  children: [
-                    Row(
-                      children: [
-                        Expanded(
-                            child: TextOf(
-                          'Hi, Welcome',
-                          30,
-                          purple,
-                          FontWeight.w600,
-                          align: TextAlign.left,
-                        )),
-                      ],
-                    ),
-                    const YMargin(7),
-                    Row(
-                      children: [
-                        Expanded(
-                            child: TextOf(
-                          "Let’s start with your email address.\nwe advise that you use the email logged in on\nthis phone",
-                          14,
-                          black,
-                          FontWeight.w400,
-                          align: TextAlign.left,
-                        )),
-                      ],
-                    )
-                  ],
-                ),
-              ),
+              PagedAppbar(
+                  title: 'Hi, Welcome',
+                  subtitle:
+                      "Let’s start with your email address.\nwe advise that you use the email logged in on\nthis phone"),
               YMargin(MediaQuery.of(context).size.height * 0.2),
               TextFormField(
                 decoration: InputDecoration(
@@ -84,39 +47,7 @@ class _SignupScreenState extends State<SignupScreen> {
                 ),
               ),
               YMargin(MediaQuery.of(context).size.height * 0.3),
-              MajorButton(
-                  buttonText: "Continue",
-                  buttonAction: () {
-                    showDialog(
-                        barrierColor: purple.withOpacity(0.3),
-                        context: context,
-                        builder: (context) {
-                          return Dialog(
-                            insetPadding: EdgeInsets.symmetric(horizontal: 20),
-                            child: Container(
-                              height: MediaQuery.of(context).size.width * 0.6,
-                              padding: EdgeInsets.symmetric(
-                                  vertical: 25, horizontal: 5),
-                              width: double.infinity,
-                              child: Column(
-                                mainAxisSize: MainAxisSize.min,
-                                children: [
-                                  pngImage(Images.mail, height: 55),
-                                  YMargin(30),
-                                  TextOf('Check your mail!', 30, purple,
-                                      FontWeight.w800),
-                                  YMargin(15),
-                                  TextOf(
-                                      'We have sent a 6 - digit code to your mail for verification.\nPlease copy the code to verify you email address',
-                                      12,
-                                      black,
-                                      FontWeight.w400)
-                                ],
-                              ),
-                            ),
-                          );
-                        });
-                  }),
+              MajorButton(buttonText: "Continue", buttonAction: () {}),
               YMargin(10),
               TextOf('By signing up, you agrtee to our', 17, black,
                   FontWeight.w400),
