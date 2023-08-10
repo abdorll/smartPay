@@ -41,4 +41,5 @@ class Images {
   static String lock = "lock";
   static String infoIcon = "info_icon";
   static String starBadge = "star_badge";
+  static String faceScanner = "face_scanner";
 }

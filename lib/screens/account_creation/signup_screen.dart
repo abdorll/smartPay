@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:smart_pay/screens/account_creation/verify_email_creen.dart';
 import 'package:smart_pay/utils/colors.dart';
 import 'package:smart_pay/utils/images.dart';
 import 'package:smart_pay/widget/appbar_paged.dart';
@@ -47,7 +48,12 @@ class _SignupScreenState extends State<SignupScreen> {
                 ),
               ),
               YMargin(MediaQuery.of(context).size.height * 0.3),
-              MajorButton(buttonText: "Continue", buttonAction: () {}),
+              MajorButton(
+                  buttonText: "Continue",
+                  buttonAction: () {
+                    Navigator.pushNamed(
+                        context, VerifyEmailScreen.verifyEmailScreen);
+                  }),
               YMargin(10),
               TextOf('By signing up, you agrtee to our', 17, black,
                   FontWeight.w400),

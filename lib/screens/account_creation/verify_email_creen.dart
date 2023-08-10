@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:smart_pay/screens/account_creation/setup_your_account_screen.dart';
 import 'package:smart_pay/utils/colors.dart';
 import 'package:smart_pay/widget/appbar_paged.dart';
 import 'package:smart_pay/widget/major_button.dart';
@@ -45,7 +46,12 @@ class _VerifyEmailScreenState extends State<VerifyEmailScreen> {
               child: Column(
                 mainAxisSize: MainAxisSize.min,
                 children: [
-                  MajorButton(buttonText: "Continue", buttonAction: () {}),
+                  MajorButton(
+                      buttonText: "Continue",
+                      buttonAction: () {
+                        Navigator.pushNamed(
+                            context, SetupYourAccount.setupYourAccount);
+                      }),
                   YMargin(30)
                 ],
               ),

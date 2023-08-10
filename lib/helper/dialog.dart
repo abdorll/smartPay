@@ -10,6 +10,7 @@ class AlerDialog {
       {required String title,
       required String subtitle,
       bool hasSkip = true,
+      String? buttonText,
       required VoidCallback callBack}) {
     showDialog(
         barrierColor: black.withOpacity(0.7),
@@ -33,7 +34,7 @@ class AlerDialog {
                   TextOf(subtitle, 10, black, FontWeight.w400),
                   YMargin(30),
                   MajorButton(
-                      buttonText: "Continue",
+                      buttonText: buttonText ?? "Continue",
                       buttonAction: () {
                         callBack();
                       }),

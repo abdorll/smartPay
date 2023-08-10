@@ -1,11 +1,14 @@
 import 'package:flutter/material.dart';
+import 'package:smart_pay/screens/account_creation/register_screen.dart';
 import 'package:smart_pay/screens/account_creation/setup_your_account_screen.dart';
 import 'package:smart_pay/screens/account_creation/signup_screen.dart';
 import 'package:smart_pay/screens/account_creation/verify_email_creen.dart';
 import 'package:smart_pay/screens/kyc_verifiation/bvn_verification_screen.dart';
+import 'package:smart_pay/screens/kyc_verifiation/face_verification_capture.dart';
 import 'package:smart_pay/screens/onboarding/signin_request.dart';
 import 'package:smart_pay/screens/onboarding/splash_screen.dart';
 import 'package:smart_pay/screens/page_not_found/page_not_found_screen.dart';
+import 'package:smart_pay/screens/pin_setup/pin_setup_screen.dart';
 import 'package:smart_pay/screens/signin_options/signin_otp_screen.dart';
 import 'package:smart_pay/screens/signin_options/signin_screen.dart';
 
@@ -28,6 +31,16 @@ class AppRoutes {
         return MaterialPageRoute(builder: (context) => SetupYourAccount());
       case BvnVerificationScreen.bvnVerificationScreen:
         return MaterialPageRoute(builder: (context) => BvnVerificationScreen());
+      case FaceVerificationCaaptureScreen.faceVerificationCaaptureScreen:
+        return MaterialPageRoute(
+            builder: (context) => FaceVerificationCaaptureScreen());
+      case RegistertScreen.registertScreen:
+        return MaterialPageRoute(builder: (context) => RegistertScreen());
+      case PinSetupScreen.pinSetupScreen:
+        return MaterialPageRoute(builder: (context) => PinSetupScreen());
+
+      case ConfirmSetupPinScreen.confirmSetupPinScreen:
+        return MaterialPageRoute(builder: (context) => ConfirmSetupPinScreen());
 
       default:
         return MaterialPageRoute(builder: (context) => PageNotFound());

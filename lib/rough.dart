@@ -1,123 +1,77 @@
-  
+import 'dart:io';
 
+import 'package:flutter/material.dart';
 
-// import 'package:flutter/material.dart';
-// import 'package:pinput/pinput.dart';
+import 'package:face_camera/face_camera.dart';
+import 'package:smart_pay/utils/colors.dart';
 
-// /// This is the basic usage of Pinput
-// /// For more examples check out the demo directory
-// class PinputExample extends StatefulWidget {
-//   static const String pinputExample = "PinputExample";
-//   const PinputExample({Key? key}) : super(key: key);
+class CaptureFace extends StatefulWidget {
+  const CaptureFace({Key? key}) : super(key: key);
 
-//   @override
-//   State<PinputExample> createState() => _PinputExampleState();
-// }
+  @override
+  State<CaptureFace> createState() => _CaptureFaceState();
+}
 
-// class _PinputExampleState extends State<PinputExample> {
-//   final pinController = TextEditingController();
-//   final focusNode = FocusNode();
-//   final formKey = GlobalKey<FormState>();
+class _CaptureFaceState extends State<CaptureFace> {
+  File? _capturedImage;
 
-//   @override
-//   void dispose() {
-//     pinController.dispose();
-//     focusNode.dispose();
-//     super.dispose();
-//   }
+  @override
+  Widget build(BuildContext context) {
+    return MaterialApp(
+      home: Scaffold(body: Builder(builder: (context) {
+        if (_capturedImage != null) {
+          return Center(
+            child: Stack(
+              alignment: Alignment.bottomCenter,
+              children: [
+                Image.file(
+                  _capturedImage!,
+                  width: double.maxFinite,
+                  fit: BoxFit.fitWidth,
+                ),
+                ElevatedButton(
+                    onPressed: () => setState(() => _capturedImage = null),
+                    child: const Text(
+                      'Capture Again',
+                      textAlign: TextAlign.center,
+                      style:
+                          TextStyle(fontSize: 14, fontWeight: FontWeight.w700),
+                    ))
+              ],
+            ),
+          );
+        }
+        return SmartFaceCamera(
+            autoCapture: true,
+            defaultCameraLens: CameraLens.front,
+            imageResolution: ImageResolution.veryHigh,
+            onCapture: (File? image) {
+              setState(() => _capturedImage = image);
+            },
+            onFaceDetected: (Face? face) {
+              //Do something
+            },
+            messageBuilder: (context, face) {
+              if (face == null) {
+                return _message('Place your face in the camera');
+              }
+              if (!face.wellPositioned) {
+                return _message('Center your face in the square');
+              }
+              return const SizedBox.shrink();
+            });
+      })),
+    );
+  }
 
-//   @override
-//   Widget build(BuildContext context) {
-//     const focusedBorderColor = Color.fromRGBO(23, 171, 144, 1);
-//     const fillColor = Color.fromRGBO(243, 246, 249, 0);
-//     const borderColor = Color.fromRGBO(23, 171, 144, 0.4);
-
-//     final defaultPinTheme = PinTheme(
-//       width: 56,
-//       height: 56,
-//       textStyle: const TextStyle(
-//         fontSize: 22,
-//         color: Color.fromRGBO(30, 60, 87, 1),
-//       ),
-//       decoration: BoxDecoration(
-//         borderRadius: BorderRadius.circular(19),
-//         border: Border.all(color: borderColor),
-//       ),
-//     );
-
-//     /// Optionally you can use form to validate the Pinput
-//     return Scaffold(
-//       body: Form(
-//         key: formKey,
-//         child: Column(
-//           mainAxisAlignment: MainAxisAlignment.center,
-//           children: [
-//             Directionality(
-//               // Specify direction if desired
-//               textDirection: TextDirection.ltr,
-//               child: Pinput(
-//                 controller: pinController,
-//                 focusNode: focusNode,
-//                 androidSmsAutofillMethod:
-//                     AndroidSmsAutofillMethod.smsUserConsentApi,
-//                 listenForMultipleSmsOnAndroid: true,
-//                 defaultPinTheme: defaultPinTheme,
-//                 separatorBuilder: (index) => const SizedBox(width: 8),
-//                 validator: (value) {
-//                   return value == '2222' ? null : 'Pin is incorrect';
-//                 },
-//                 // onClipboardFound: (value) {
-//                 //   debugPrint('onClipboardFound: $value');
-//                 //   pinController.setText(value);
-//                 // },
-//                 hapticFeedbackType: HapticFeedbackType.lightImpact,
-//                 onCompleted: (pin) {
-//                   debugPrint('onCompleted: $pin');
-//                 },
-//                 onChanged: (value) {
-//                   debugPrint('onChanged: $value');
-//                 },
-//                 cursor: Column(
-//                   mainAxisAlignment: MainAxisAlignment.end,
-//                   children: [
-//                     Container(
-//                       margin: const EdgeInsets.only(bottom: 9),
-//                       width: 22,
-//                       height: 1,
-//                       color: focusedBorderColor,
-//                     ),
-//                   ],
-//                 ),
-//                 focusedPinTheme: defaultPinTheme.copyWith(
-//                   decoration: defaultPinTheme.decoration!.copyWith(
-//                     borderRadius: BorderRadius.circular(8),
-//                     border: Border.all(color: focusedBorderColor),
-//                   ),
-//                 ),
-//                 submittedPinTheme: defaultPinTheme.copyWith(
-//                   decoration: defaultPinTheme.decoration!.copyWith(
-//                     color: fillColor,
-//                     borderRadius: BorderRadius.circular(19),
-//                     border: Border.all(color: focusedBorderColor),
-//                   ),
-//                 ),
-//                 errorPinTheme: defaultPinTheme.copyBorderWith(
-//                   border: Border.all(color: Colors.redAccent),
-//                 ),
-//               ),
-//             ),
-//             TextButton(
-//               onPressed: () {
-//                 focusNode.unfocus();
-//                 formKey.currentState!.validate();
-//               },
-//               child: const Text('Validate'),
-//             ),
-//           ],
-//         ),
-//       ),
-//     );
-//   }
-// }
-
-
+  Widget _message(String msg) => Padding(
+        padding: const EdgeInsets.symmetric(horizontal: 55, vertical: 15),
+        child: Text(msg,
+            textAlign: TextAlign.center,
+            style: TextStyle(
+                color: white,
+                fontSize: 14,
+                height: 1.5,
+                fontWeight: FontWeight.w400)),
+      );
+}

@@ -1,3 +1,5 @@
+// ignore_for_file: must_be_immutable
+
 import 'package:flutter/material.dart';
 import 'package:smart_pay/utils/colors.dart';
 import 'package:smart_pay/widget/texts.dart';

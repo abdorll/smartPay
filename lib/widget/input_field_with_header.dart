@@ -28,7 +28,7 @@ class _InputFieldWithHeaderState extends State<InputFieldWithHeader> {
             TextOf(
               widget.title!,
               widget.size ?? 12,
-              widget.color ?? grey,
+              widget.color ?? Colors.grey,
               FontWeight.w400,
               align: TextAlign.left,
             ),

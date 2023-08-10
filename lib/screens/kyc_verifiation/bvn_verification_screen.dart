@@ -1,8 +1,11 @@
 import 'package:flutter/material.dart';
+import 'package:smart_pay/screens/kyc_verifiation/face_verification_capture.dart';
 import 'package:smart_pay/utils/colors.dart';
+import 'package:smart_pay/utils/images.dart';
 import 'package:smart_pay/widget/appbar_paged.dart';
 import 'package:smart_pay/widget/input_field_with_header.dart';
 import 'package:smart_pay/widget/major_button.dart';
+import 'package:smart_pay/widget/my_botom_sheet.dart';
 import 'package:smart_pay/widget/spacing.dart';
 import 'package:smart_pay/widget/texts.dart';
 
@@ -63,7 +66,41 @@ class _BvnVerificationScreenState extends State<BvnVerificationScreen> {
               child: Column(
                 mainAxisSize: MainAxisSize.min,
                 children: [
-                  MajorButton(buttonText: "Continue", buttonAction: () {}),
+                  MajorButton(
+                      buttonText: "Continue",
+                      buttonAction: () {
+                        myBottomSheet(context,
+                            child: Column(
+                              mainAxisSize: MainAxisSize.min,
+                              children: [
+                                YMargin(15),
+                                Row(
+                                  mainAxisAlignment: MainAxisAlignment.start,
+                                  children: [
+                                    TextOf("Scan your Face", 20, purple,
+                                        FontWeight.w400)
+                                  ],
+                                ),
+                                YMargin(60),
+                                pngImage(Images.faceScanner, height: 120),
+                                YMargin(30),
+                                TextOf(
+                                    'To continue, you need to scan your face',
+                                    12,
+                                    black,
+                                    FontWeight.w400),
+                                YMargin(70),
+                                MajorButton(
+                                    buttonText: "Take a Selfie",
+                                    buttonAction: () {
+                                      Navigator.pushNamed(
+                                          context,
+                                          FaceVerificationCaaptureScreen
+                                              .faceVerificationCaaptureScreen);
+                                    })
+                              ],
+                            ));
+                      }),
                   YMargin(30)
                 ],
               ),

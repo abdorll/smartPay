@@ -14,11 +14,20 @@ class OtpField extends StatefulWidget {
 }
 
 class _OtpFieldState extends State<OtpField> {
+  late TextEditingController pinController;
+  late FocusNode focusNode ;
   @override
   void dispose() {
     pinController.dispose();
     focusNode.dispose();
     super.dispose();
+  }
+
+  @override
+  void initState() {
+    pinController = TextEditingController();
+    focusNode = FocusNode();
+    super.initState();
   }
 
   @override
@@ -84,8 +93,7 @@ class _OtpFieldState extends State<OtpField> {
   }
 }
 
-final pinController = TextEditingController();
-final focusNode = FocusNode();
+
 final formKey = GlobalKey<FormState>();
 
 Color focusedBorderColor = purple;
@@ -101,8 +109,8 @@ PinTheme defaultPinTheme({required double size, Color? color}) {
     ),
     decoration: BoxDecoration(
       borderRadius: BorderRadius.circular(9),
-      color: color ?? purple.withOpacity(0.7),
-      border: Border.all(color: color ?? purple.withOpacity(0.7)),
+      color: color ?? grey.withOpacity(0.4),
+      border: Border.all(color: color ?? grey),
     ),
   );
 }
