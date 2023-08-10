@@ -1,4 +1,4 @@
-import 'package:flutter/material.dart'; 
+import 'package:flutter/material.dart';
 import 'package:smart_pay/screens/onboarding/intro_screens.dart';
 import 'package:smart_pay/utils/colors.dart';
 import 'package:smart_pay/utils/images.dart';
@@ -26,14 +26,17 @@ class _SplashScreenState extends State<SplashScreen> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: purple,
+      // backgroundColor: purple,
       body: SafeArea(
         child: Stack(
           alignment: Alignment.center,
           children: [
-            pngImage(Images.purpleBackground,
+            Container(
                 width: MediaQuery.of(context).size.width,
+                decoration: BoxDecoration(color: purple),
                 height: MediaQuery.of(context).size.height),
+            pngImage(Images.greyWeb,
+                width: double.infinity, height: double.infinity),
             pngImage(Images.whiteLogo, width: 300),
           ],
         ),

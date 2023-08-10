@@ -16,9 +16,10 @@ Widget pngImage(String imageName, {double? height, double? width}) {
 Widget svgImage(String imageName, {double? height, double? width}) {
   return SvgPicture.asset(
     assetPath(imageName, isSvg: true),
-    semanticsLabel: 'Acme Logo',
-    height: height,
-    width: width,
+    semanticsLabel: imageName,
+    height: height!,
+    width: width!,
+    fit: BoxFit.cover,
   );
 }
 
@@ -42,4 +43,5 @@ class Images {
   static String infoIcon = "info_icon";
   static String starBadge = "star_badge";
   static String faceScanner = "face_scanner";
+  static String greyWeb = "grey_web";
 }
