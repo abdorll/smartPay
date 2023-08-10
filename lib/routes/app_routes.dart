@@ -4,7 +4,7 @@ import 'package:smart_pay/screens/account_creation/signup_screen.dart';
 import 'package:smart_pay/screens/account_creation/verify_email_creen.dart';
 import 'package:smart_pay/screens/onboarding/signin_request.dart';
 import 'package:smart_pay/screens/onboarding/splash_screen.dart';
-import 'package:smart_pay/screens/page_not_found/page_not_found.dart.dart';
+import 'package:smart_pay/screens/page_not_found/page_not_found_screen.dart';
 import 'package:smart_pay/screens/signin_options/signin_otp_screen.dart';
 import 'package:smart_pay/screens/signin_options/signin_screen.dart';
 
