@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:smart_pay/helper/dialog.dart';
+import 'package:smart_pay/screens/kyc_verifiation/bvn_verification_screen.dart';
 import 'package:smart_pay/utils/colors.dart';
 import 'package:smart_pay/widget/appbar_paged.dart';
 import 'package:smart_pay/widget/input_field_with_header.dart';
@@ -61,7 +62,10 @@ class _SetupYourAccountState extends State<SetupYourAccount> {
                           title: 'Congratulations',
                           subtitle:
                               'Your account have been created successfully.Now, Verify your account with your BVN.',
-                          callBack: () {});
+                          callBack: () {
+                        Navigator.pushNamed(context,
+                            BvnVerificationScreen.bvnVerificationScreen);
+                      });
                     }),
                 YMargin(30)
               ],
